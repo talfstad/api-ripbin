@@ -1,0 +1,17 @@
+#autogen files
+.DS_Store
+
+#vendor library files
+node_modules
+public/vendor/bower_installed
+
+# Elastic Beanstalk Files
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+#staging
+server/staging
+
+#build
+dist
+release-candidate.zip

@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "4"
+before_install:
+  - npm install
+install:
+  - chmod +x ./scripts/build.js
+  - node ./scripts/build.js
+deploy:
+  - provider: elasticbeanstalk
+    skip_cleanup: true
+    app: api.ripbin.com
+    env: api-test-ripbin
+    access_key_id: "AKIAIGEHZO373H6MTW6Q"
+    secret_access_key: "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"
+    region: us-west-2
+    bucket_name: elasticbeanstalk-us-west-2-834835117621
+    path: /api.ripbin.com
+    zip_file: release-candidate.zip
+    on:
+      branch: test
+  - provider: elasticbeanstalk
+    skip_cleanup: true
+    app: api.ripbin.com
+    env: api-ripbin
+    access_key_id: "AKIAIGEHZO373H6MTW6Q"
+    secret_access_key: "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"
+    region: us-west-2
+    bucket_name: elasticbeanstalk-us-west-2-834835117621
+    path: /api.ripbin.com
+    zip_file: release-candidate.zip
+    on:
+      branch: prod

@@ -1,0 +1,26 @@
+{
+  "name": "api-ripbin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "underscore": "*",
+    "express": "*",
+    "http": "*",
+    "hbs": "*",
+    "morgan": "*",
+    "method-override": "*",
+    "body-parser": "*",
+    "compression": "*",
+    "mysql": "*",
+    "multer": "*"
+  },
+  "devDependencies": {
+    "rsync": "*",
+    "rimraf": "*",
+    "zip-dir": " *",
+    "mkdirp": "*"
+  }
+}

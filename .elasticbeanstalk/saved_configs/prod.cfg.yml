@@ -1,0 +1,57 @@
+EnvironmentConfigurationMetadata:
+  Description: Configuration created from the EB CLI using "eb config save".
+  DateCreated: '1481705179000'
+  DateModified: '1481705179000'
+SolutionStack: 64bit Amazon Linux 2016.09 v2.2.2 running Docker 1.11.2
+OptionSettings:
+  aws:elasticbeanstalk:command:
+    BatchSize: '30'
+    Timeout: '3600'
+    BatchSizeType: Percentage
+    DeploymentPolicy: Rolling
+  aws:elasticbeanstalk:sns:topics:
+    Notification Endpoint: trevor@buildcave.com
+  aws:elb:policies:
+    ConnectionDrainingEnabled: true
+    ConnectionDrainingTimeout: '20'
+  aws:elb:healthcheck:
+    UnhealthyThreshold: 10
+    Timeout: 10
+    HealthyThreshold: 3
+    Interval: 15
+  aws:elb:loadbalancer:
+    LoadBalancerHTTPSPort: '443'
+    CrossZone: true
+    LoadBalancerHTTPPort: '80'
+    SSLCertificateId: arn:aws:iam::834835117621:server-certificate/ripbin-app.crt
+  aws:elasticbeanstalk:environment:
+    ServiceRole: aws-elasticbeanstalk-service-role
+    EnvironmentType: LoadBalanced
+  aws:elasticbeanstalk:application:
+    Application Healthcheck URL: /api/health
+  aws:elasticbeanstalk:healthreporting:system:
+    SystemType: enhanced
+    HealthCheckSuccessThreshold: Ok
+  aws:ec2:vpc:
+    Subnets: subnet-7a0e1e0c
+    VPCId: vpc-21875946
+    ELBSubnets: subnet-980d1dee
+    ELBScheme: public
+    AssociatePublicIpAddress: true
+  aws:autoscaling:launchconfiguration:
+    RootVolumeSize: '10'
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    InstanceType: m1.medium
+    EC2KeyName: Ripbin
+  aws:autoscaling:asg:
+    MinSize: '1'
+    MaxSize: '2'
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateType: Health
+    RollingUpdateEnabled: true
+EnvironmentTier:
+  Type: Standard
+  Name: WebServer
+AWSConfigurationTemplateVersion: 1.1.0.0
+Tags:
+  env: prod
